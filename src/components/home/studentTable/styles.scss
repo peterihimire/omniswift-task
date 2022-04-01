@@ -1,0 +1,139 @@
+.transactionHistory {
+  width: 100%;
+
+  .wrapper {
+    width: 85%;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: var(--white);
+
+    // height: 100%;
+    max-width: var(--wrapper-max-width);
+
+    @media (max-width: 1387px) {
+      width: 90%;
+    }
+
+    @media (max-width: 1315px) {
+      width: 95%;
+    }
+
+    .tableHeader {
+      h3 {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000;
+        margin: 40px 0 15px 0;
+      }
+    }
+
+    .content {
+      height: 500px;
+      overflow: scroll;
+      overflow-x: hidden;
+
+      background-color: var(--white);
+
+      @media (max-width: 700px) {
+        overflow-x: scroll;
+      }
+
+      &::-webkit-scrollbar {
+        width: 24px;
+        height: 24px;
+      }
+
+      &::-webkit-scrollbar-corner {
+        width: 25px;
+      }
+      &::-webkit-scrollbar-button {
+        width: 5px;
+        background-color: red;
+      }
+      &::-webkit-scrollbar-track-piece {
+        // box-shadow: inset 0 0 5px grey;
+        border-radius: 0px;
+        background: #F8F8F8;;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--pry-green);
+        border-radius: 100px;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: var(--pry-green);
+      }
+
+      table {
+        // border: 2px solid forestgreen;
+        width: 100%;
+        height: 200px;
+        text-align: left;
+
+        // border-collapse: collapse;
+
+        tr {
+          background-color: var(--white) !important;
+          border-radius: 50px !important;
+        }
+      }
+
+      th {
+        // border-bottom: 1px solid black;
+        background-color: #f9f9fa !important;
+        padding: 20px 10px;
+        margin-bottom: 10px;
+        // border-bottom: 5px solid black;
+      }
+
+      td {
+        // text-align: center;
+        padding: 10px 10px;
+
+        h3 {
+          font-size: 14px;
+          line-height: 17px;
+          color: #65676f;
+        }
+        .download-btn{
+          font-size: 12px;
+          height: 35px;
+          width: 126px;
+          border-radius: 0px;
+        }
+      }
+      .tdDiv {
+        display: flex;
+        align-items: center;
+
+        span {
+          margin-left: 10px;
+          color: #373839;
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+
+      .mValues {
+        h3 {
+          font-size: 14px;
+          line-height: 17px;
+          color: #65676f;
+        }
+        span {
+          color: #65676f;
+          font-size: 12px;
+          line-height: 15px;
+        }
+      }
+      .colorRed {
+        color: #ea1d1d;
+      }
+
+      .colorGreen {
+        color: rgb(6, 175, 6);
+      }
+    }
+  }
+}
