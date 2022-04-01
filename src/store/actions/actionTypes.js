@@ -1,0 +1,5 @@
+export const SET_STUDENTS = "SET_STUDENTS";
+export const SEARCH_STUDENTS = "SEARCH_STUDENTS";
+
+export const STUDENT_START = "STUDENT_START";
+export const STUDENT_ERROR = "STUDENT_ERROR";

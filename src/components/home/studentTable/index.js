@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import * as actions from "../../../store/actions";
 
 import "./styles.scss";
 
-const TransactionHistory = () => {
+const StudentsTable = () => {
   // Example of a data array that
   // you might receive from an API
+
+  const dispatch = useDispatch();
+
+  const { allStudents, loading, error } = useSelector((state) => {
+    console.log(state);
+    // console.log(error, loading);
+    // console.log(allStudents);
+    return {
+      allStudents: state.students.allStudents,
+      error: state.students.error,
+      loading: state.students.loading,
+    };
+  });
+
   const data = [
     {
       id: "2",
@@ -127,56 +144,66 @@ const TransactionHistory = () => {
       action: "https://github.com/",
     },
   ];
+
+  const studentsData = allStudents;
+  console.log(studentsData);
+
+  useEffect(() => {
+    dispatch(actions.students());
+  }, [dispatch]);
+
   return (
     <section className='transactionHistory'>
       <div className='wrapper'>
         <div className='content'>
           <table>
-            <tr>
-              <th>S/N</th>
-              <th>Surname</th>
-              <th>First Name</th>
-              <th>Age</th>
-              <th>Gender</th>
-              <th>Level</th>
-              <th>State</th>
-              <th>Action</th>
-            </tr>
-            {data.map((val, key) => {
-              return (
-                <tr key={key}>
-                  <td className='' width='5%'>
-                    {key + 1}
-                  </td>
-                  <td className='' width='12%'>
-                    {val.surname}
-                  </td>
-                  <td className='' width='12%'>
-                    {val.firstName}
-                  </td>
-                  <td className='' width='8%'>
-                    {val.age}
-                  </td>
-                  <td className='' width='8%'>
-                    {val.gender}
-                  </td>
-                  <td className='' width='8%'>
-                    {val.level} <span>level</span>
-                  </td>
-                  <td className='' width='12%'>
-                    {val.state} <span>state</span>
-                  </td>
-                  <td width='12%'>
-                    <button
-                      className='download-btn btn-primary'
-                      onClick={val.actions}
-                    >
-                      Download Result
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
+            <tbody>
+              <tr>
+                <th>S/N</th>
+                <th>Surname</th>
+                <th>First Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Level</th>
+                <th>State</th>
+                <th>Action</th>
+              </tr>
+              {studentsData.map((val, key) => {
+                return (
+                  <tr key={key}>
+                    <td className='' width='5%'>
+                      {key + 1}
+                    </td>
+                    <td className='' width='12%'>
+                      {val.surname}
+                    </td>
+                    <td className='' width='12%'>
+                      {val.firstname}
+                    </td>
+                    <td className='' width='8%'>
+                      {val.age}
+                    </td>
+                    <td className='' width='8%'>
+                      {val.gender}
+                    </td>
+                    <td className='' width='8%'>
+                      {val.level}
+                    </td>
+                    <td className='' width='12%'>
+                      {val.state}
+                    </td>
+                    <td width='12%'>
+                      <button
+                        className='download-btn btn-primary'
+                        onClick={val.actions}
+                      >
+                        Download Result
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
           </table>
         </div>
       </div>
@@ -184,4 +211,4 @@ const TransactionHistory = () => {
   );
 };
 
-export default TransactionHistory;
+export default StudentsTable;

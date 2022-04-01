@@ -1,60 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import Select from "../../ui/customSelect";
-// import SearchIcon from "../../../public/images/search-icon.svg";
-// import { useSelector, useDispatch } from "react-redux";
-// import * as actions from "../../../store/actions";
+import { useSelector, useDispatch } from "react-redux";
+import * as actions from "../../../store/actions";
 
 const SearchSort = () => {
+  const dispatch = useDispatch();
+  const [fields, setFields] = useState({
+    level: "",
+    age: "",
+    state: "",
+    gender: "",
+  });
   // const dispatch = useDispatch();
   // console.log(actions);
 
-  // const filterByInput = (e) => {
-  //   e.preventDefault();
-  //   const input = e.target.value;
-  //   console.log(input);
-  //   dispatch(actions.filterByValue({ value: input }));
-  // };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
 
-  // const sortByInputHandler = (e) => {
-  //   e.preventDefault();
-  //   const value = e.target.value;
-  //   // let text = e.target.value;
-  //   // dispatch(actions.searchCareersLocation({ ...field }));
-  //   // dispatch(actions.filterByValue({value}));
+    setFields({
+      ...fields,
+      [name]: value,
+    });
+  };
 
-  //   if (value.startsWith("education")) {
-  //     dispatch(actions.sortByEducation({ value }));
-  //   } else if (value.startsWith("health")) {
-  //     dispatch(actions.sortByHealth({ value }));
-  //   } else if (value.startsWith("ecommerce")) {
-  //     dispatch(actions.sortByEcommerce({ value }));
-  //   } else {
-  //     dispatch(actions.loadData());
-  //   }
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(actions.searchStudent({ ...fields }));
+  };
 
-  //   console.log(value);
-  // };
-
-  // const sortByInput = (e) => {
-  //   e.preventDefault();
-  //   const value = e.target.value;
-  //   let direction = value.endsWith("asc") ? "asc" : "desc";
-
-  //   if (value === "default") {
-  //     dispatch(actions.loadData());
-  //   } else if (value.startsWith("education")) {
-  //     dispatch(actions.sortByEducation({ value }));
-  //   } else if (value.startsWith("health")) {
-  //     dispatch(actions.sortByHealth({ value }));
-  //   } else if (value.startsWith("ecommerce")) {
-  //     dispatch(actions.sortByEcommerce({ value }));
-  //   } else {
-  //     dispatch(actions.sortByAlphabet({ direction }));
-  //   }
-
-  //   console.log(value);
-  // };
+  console.log(fields);
 
   return (
     <section className='searchSort'>
@@ -64,7 +39,7 @@ const SearchSort = () => {
         <h1>Student Data Table</h1>
         <div className='search-wrapper'>
           <div className='form-title'>Filter Student Table By:</div>
-          <form>
+          <form onSubmit={submitHandler}>
             <div className='formGrid'>
               <div className='formGroup'>
                 <Select
@@ -74,15 +49,20 @@ const SearchSort = () => {
                   // required
                   defaultValue=''
                   wrapClass='selectWidth'
-                  // onChange={sortByInputHandler}
+                  onChange={handleInputChange}
+                  value={fields.age}
                   // onChange={sortByInput}
                 >
                   <option value='' disabled>
                     select age
                   </option>
-                  <option value='education'>Education</option>
-                  <option value='ecommerce'>E-Commerce</option>
-                  <option value='health'>Health</option>
+                  <option value='19'>19</option>
+                  <option value='20'>20</option>
+                  <option value='21'>21</option>
+                  <option value='22'>22</option>
+                  <option value='23'>23</option>
+                  <option value='24'>24</option>
+                  <option value='25'>25</option>
                 </Select>
               </div>
               <div className='formGroup'>
@@ -93,13 +73,15 @@ const SearchSort = () => {
                   id='state'
                   defaultValue=''
                   wrapClass='selectWidth'
-                  // onChange={sortByInput}
+                  onChange={handleInputChange}
+                  value={fields.state}
                 >
                   <option value='' disabled>
                     select state
                   </option>
-                  <option value='order_asc'>Order - A-Z</option>
-                  <option value='order_desc'>Order - Z-A</option>
+                  <option value='Abuja'>Abuja</option>
+                  <option value='Kaduna State'>Kaduna State</option>
+                  <option value='Borno State'>Borno State</option>
                 </Select>
               </div>
               <div className='formGroup'>
@@ -110,13 +92,16 @@ const SearchSort = () => {
                   id='level'
                   defaultValue=''
                   wrapClass='selectWidth'
-                  // onChange={sortByInput}
+                  onChange={handleInputChange}
+                  value={fields.level}
                 >
                   <option value='' disabled>
                     select level
                   </option>
-                  <option value='date_asc'>Date - ASC</option>
-                  <option value='date_desc'>Date - DESC</option>
+                  <option value='3'>3</option>
+                  <option value='100 Level'>100 Level</option>
+                  <option value='200 Level'>200 Level</option>
+                  <option value='300 Level'>300 Level</option>
                 </Select>
               </div>
               <div className='formGroup'>
@@ -127,22 +112,19 @@ const SearchSort = () => {
                   id='gender'
                   defaultValue=''
                   wrapClass='selectWidth'
-                  // onChange={sortByInput}
+                  onChange={handleInputChange}
+                  value={fields.gender}
                 >
                   <option value='' disabled>
                     select gender
                   </option>
-                  <option value='date_asc'>Date - ASC</option>
-                  <option value='date_desc'>Date - DESC</option>
+                  <option value='male'>Male</option>
+                  <option value='female'>Female</option>
                 </Select>
               </div>
 
               <div className='submitBtn'>
-                <button
-                  className='btn-primary  search-btn'
-                  // onClick={stepHandler}
-                  type='submit'
-                >
+                <button className='btn-primary  search-btn' type='submit'>
                   Search
                 </button>
               </div>
