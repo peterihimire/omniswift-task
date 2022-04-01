@@ -83,7 +83,7 @@ export const result = ({ id }) => {
       console.log(response.data);
       dispatch(setResult(response.data));
     } catch (err) {
-      dispatch(studentsError(err.response.data));
+      dispatch(studentsError(err.response?.data));
     } finally {
       dispatch(studentsStart(false));
     }

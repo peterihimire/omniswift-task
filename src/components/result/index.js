@@ -79,23 +79,23 @@ const Result = (props) => {
             <div>
               <div className='result-user-item'>
                 <h4>Name:</h4>
-                <span>{result.data.surname}</span>
-                <span>{result.data.firstname}</span>
+                <span>{result.data?.surname}</span>
+                <span>{result.data?.firstname}</span>
               </div>
               <div className='result-user-item'>
                 <h4>level:</h4>
-                <span>{result.data.level}</span>
+                <span>{result.data?.level}</span>
               </div>
             </div>
 
             <div>
               <div className='result-user-item'>
                 <h4>Reg. No.:</h4>
-                <span>{result.data.reg_no}</span>
+                <span>{result.data?.reg_no}</span>
               </div>
               <div className='result-user-item'>
                 <h4>Session:</h4>
-                <span>{result.data.session}</span>
+                <span>{result.data?.session}</span>
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@ const Result = (props) => {
                   <th>Grade</th>
                   <th>Total Point</th>
                 </tr>
-                {result.data.result?.map((val, key) => {
+                {result.data?.result?.map((val, key) => {
                   return (
                     <tr key={key}>
                       <td>{key + 1}</td>
@@ -142,12 +142,12 @@ const Result = (props) => {
                 </tr>
 
                 <tr>
-                  <td>{result.data.cummulative?.unts}</td>
-                  <td>{result.data.cummulative?.untd}</td>
-                  <td>{result.data.cummulative?.gpts}</td>
-                  <td className=''>{result.data.cummulative?.gptd}</td>
-                  <td>{result.data.cummulative?.gpats}</td>
-                  <td>{result.data.cummulative?.gpatd}</td>
+                  <td>{result.data?.cummulative?.unts}</td>
+                  <td>{result.data?.cummulative?.untd}</td>
+                  <td>{result.data?.cummulative?.gpts}</td>
+                  <td className=''>{result.data?.cummulative?.gptd}</td>
+                  <td>{result.data?.cummulative?.gpats}</td>
+                  <td>{result.data?.cummulative?.gpatd}</td>
                 </tr>
               </tbody>
             </table>
@@ -156,7 +156,7 @@ const Result = (props) => {
           <div className='remarks'>
             <div className='remarks-item'>
               <h4>Remarks:</h4>
-              <span>{result.data.cummulative?.remarks}</span>
+              <span>{result.data?.cummulative?.remarks}</span>
             </div>
           </div>
 
