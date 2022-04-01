@@ -1,1 +1,1 @@
-export { studentsError, students, studentsStart, setStudents, searchStudent } from "./students";
+export { studentsError, students, studentsStart, setStudents, searchStudent, setResult, result } from "./students";

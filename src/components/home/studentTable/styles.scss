@@ -90,9 +90,11 @@
         }
         .download-btn {
           font-size: 12px;
-          height: 35px;
+          height: 35px !important;
           width: 126px;
           border-radius: 0px;
+
+        
         }
       }
       .tdDiv {

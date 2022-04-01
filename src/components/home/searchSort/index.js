@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "./styles.scss";
 import Select from "../../ui/customSelect";
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import * as actions from "../../../store/actions";
 
 const SearchSort = () => {
@@ -47,7 +47,7 @@ const SearchSort = () => {
                   id='age'
                   labelText='Age'
                   // required
-                  defaultValue=''
+                  // defaultValue=''
                   wrapClass='selectWidth'
                   onChange={handleInputChange}
                   value={fields.age}
@@ -71,7 +71,7 @@ const SearchSort = () => {
                   labelText='State'
                   // required
                   id='state'
-                  defaultValue=''
+                  // defaultValue=''
                   wrapClass='selectWidth'
                   onChange={handleInputChange}
                   value={fields.state}
@@ -90,7 +90,7 @@ const SearchSort = () => {
                   labelText='Level'
                   // required
                   id='level'
-                  defaultValue=''
+                  // defaultValue=''
                   wrapClass='selectWidth'
                   onChange={handleInputChange}
                   value={fields.level}
@@ -110,7 +110,7 @@ const SearchSort = () => {
                   labelText='Gender'
                   // required
                   id='gender'
-                  defaultValue=''
+                  // defaultValue=''
                   wrapClass='selectWidth'
                   onChange={handleInputChange}
                   value={fields.gender}

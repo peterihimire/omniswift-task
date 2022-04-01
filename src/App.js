@@ -15,7 +15,7 @@ function App() {
         <AppRoute exact path='/' component={HomePage} layout={LandingLayout} />
         <AppRoute
           exact
-          path='/result'
+          path='/result/:id'
           component={ResultPage}
           layout={LandingLayout}
         />

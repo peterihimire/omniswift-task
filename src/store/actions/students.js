@@ -23,6 +23,13 @@ export const setStudents = (payload) => {
   };
 };
 
+export const setResult = (payload) => {
+  return {
+    type: actionTypes.SET_RESULT,
+    payload,
+  };
+};
+
 // get all students
 
 export const students = () => {
@@ -41,7 +48,7 @@ export const students = () => {
   };
 };
 
-// login
+// search students
 
 export const searchStudent = ({ level, age, state, gender }) => {
   return async (dispatch) => {
@@ -59,6 +66,24 @@ export const searchStudent = ({ level, age, state, gender }) => {
       dispatch(setStudents(response.data.data.students));
     } catch (err) {
       dispatch(studentsError(err.response.data.error.message));
+    } finally {
+      dispatch(studentsStart(false));
+    }
+  };
+};
+
+// get result
+
+export const result = ({ id }) => {
+  return async (dispatch) => {
+    dispatch(studentsStart(true));
+
+    try {
+      const response = await axios.post(`viewResult/${id}`);
+      console.log(response.data);
+      dispatch(setResult(response.data));
+    } catch (err) {
+      dispatch(studentsError(err.response.data));
     } finally {
       dispatch(studentsStart(false));
     }

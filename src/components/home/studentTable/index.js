@@ -2,13 +2,12 @@ import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../../store/actions";
-
+import Loader from "react-loader-spinner";
+import { Link, useHistory } from "react-router-dom";
 import "./styles.scss";
 
 const StudentsTable = () => {
-  // Example of a data array that
-  // you might receive from an API
-
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const { allStudents, loading, error } = useSelector((state) => {
@@ -152,6 +151,19 @@ const StudentsTable = () => {
     dispatch(actions.students());
   }, [dispatch]);
 
+  if (loading)
+    return (
+      <div className='loader'>
+        <Loader
+          visible={loading}
+          type='Bars'
+          color='#46C35F'
+          height={100}
+          width={100}
+        />
+      </div>
+    );
+
   return (
     <section className='transactionHistory'>
       <div className='wrapper'>
@@ -194,8 +206,11 @@ const StudentsTable = () => {
                     </td>
                     <td width='12%'>
                       <button
+                        // to={`/result/${val.id}`}
                         className='download-btn btn-primary'
-                        onClick={val.actions}
+                        onClick={() => {
+                          history.push(`/result/${val.id}`);
+                        }}
                       >
                         Download Result
                       </button>

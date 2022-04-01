@@ -3,6 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   // currentUser: JSON.parse(localStorage.getItem("user")) || null,
   allStudents: [],
+  result: {},
   loading: false,
   error: null,
 };
@@ -13,6 +14,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         allStudents: action.payload,
+      };
+    case actionTypes.SET_RESULT:
+      return {
+        ...state,
+        result: action.payload,
       };
     case actionTypes.STUDENT_START:
       return {

@@ -520,3 +520,10 @@ input[type="radio"] {
 .hamburger:hover {
   opacity: 1 !important;
 }
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 33;
+}
