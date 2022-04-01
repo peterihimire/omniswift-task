@@ -60,82 +60,96 @@ const SearchSort = () => {
     <section className='searchSort'>
       <div className={` wrapper`}>
         {/* <div className='grid'> */}
-        <form>
-          <div className='formGrid'>
-            <div className='formGroup'>
-              <Select
-                name='category'
-                id='category'
-                labelText='Category'
-                // required
-                defaultValue=''
-                wrapClass='selectWidth'
-                // onChange={sortByInputHandler}
-                // onChange={sortByInput}
-              >
-                <option value='default'>All</option>
-                <option value='education'>Education</option>
-                <option value='ecommerce'>E-Commerce</option>
-                <option value='health'>Health</option>
-              </Select>
-            </div>
-            <div className='formGroup'>
-              <Select
-                name='order'
-                labelText='Order'
-                // required
-                id='order'
-                defaultValue=''
-                wrapClass='selectWidth'
-                // onChange={sortByInput}
-              >
-                <option value='default'>Default</option>
-                <option value='order_asc'>Order - A-Z</option>
-                <option value='order_desc'>Order - Z-A</option>
-              </Select>
-            </div>
-            <div className='formGroup'>
-              <Select
-                name='date'
-                labelText='Date'
-                // required
-                id='date'
-                defaultValue=''
-                wrapClass='selectWidth'
-                // onChange={sortByInput}
-              >
-                <option value='default'>Default</option>
-                <option value='date_asc'>Date - ASC</option>
-                <option value='date_desc'>Date - DESC</option>
-              </Select>
-            </div>
-            <div className='formGroup'>
-              <Select
-                name='date'
-                labelText='Date'
-                // required
-                id='date'
-                defaultValue=''
-                wrapClass='selectWidth'
-                // onChange={sortByInput}
-              >
-                <option value='default'>Default</option>
-                <option value='date_asc'>Date - ASC</option>
-                <option value='date_desc'>Date - DESC</option>
-              </Select>
-            </div>
+        {/* <div className="search-hearder"></div> */}
+        <h1>Student Data Table</h1>
+        <div className='search-wrapper'>
+          <div className='form-title'>Filter Student Table By:</div>
+          <form>
+            <div className='formGrid'>
+              <div className='formGroup'>
+                <Select
+                  name='age'
+                  id='age'
+                  labelText='Age'
+                  // required
+                  defaultValue=''
+                  wrapClass='selectWidth'
+                  // onChange={sortByInputHandler}
+                  // onChange={sortByInput}
+                >
+                  <option value='' disabled>
+                    select age
+                  </option>
+                  <option value='education'>Education</option>
+                  <option value='ecommerce'>E-Commerce</option>
+                  <option value='health'>Health</option>
+                </Select>
+              </div>
+              <div className='formGroup'>
+                <Select
+                  name='state'
+                  labelText='State'
+                  // required
+                  id='state'
+                  defaultValue=''
+                  wrapClass='selectWidth'
+                  // onChange={sortByInput}
+                >
+                  <option value='' disabled>
+                    select state
+                  </option>
+                  <option value='order_asc'>Order - A-Z</option>
+                  <option value='order_desc'>Order - Z-A</option>
+                </Select>
+              </div>
+              <div className='formGroup'>
+                <Select
+                  name='level'
+                  labelText='Level'
+                  // required
+                  id='level'
+                  defaultValue=''
+                  wrapClass='selectWidth'
+                  // onChange={sortByInput}
+                >
+                  <option value='' disabled>
+                    select level
+                  </option>
+                  <option value='date_asc'>Date - ASC</option>
+                  <option value='date_desc'>Date - DESC</option>
+                </Select>
+              </div>
+              <div className='formGroup'>
+                <Select
+                  name='gender'
+                  labelText='Gender'
+                  // required
+                  id='gender'
+                  defaultValue=''
+                  wrapClass='selectWidth'
+                  // onChange={sortByInput}
+                >
+                  <option value='' disabled>
+                    select gender
+                  </option>
+                  <option value='date_asc'>Date - ASC</option>
+                  <option value='date_desc'>Date - DESC</option>
+                </Select>
+              </div>
 
-            <div className='submitBtn'>
-              <button
-                className='btn-primary  search-btn'
-                // onClick={stepHandler}
-                type='submit'
-              >
-                Search
-              </button>
+              <div className='submitBtn'>
+                <button
+                  className='btn-primary  search-btn'
+                  // onClick={stepHandler}
+                  type='submit'
+                >
+                  Search
+                </button>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
+
         {/* </div> */}
       </div>
     </section>

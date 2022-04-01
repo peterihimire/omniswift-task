@@ -7,56 +7,51 @@ import "./styles.scss";
 const Result = () => {
   const data = [
     {
-      type: "Wallet Deposit",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      courseCode: "PDE 701",
+      courseTitle: "History of Education",
+      unit: 2,
+      grade: "A",
+      totalPoint: "8ed",
     },
     {
-      type: "Cash Withdrawal",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      courseCode: "PDE 701l",
+      courseTitle: "History of Education",
+      unit: 2,
+      grade: "A",
+      totalPoint: "8ed",
     },
     {
-      type: "Agrp Investment",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "success",
-      Actions: "",
+      courseCode: "PDE 701t",
+      courseTitle: "History of Education",
+      unit: 2,
+      grade: "A",
+      totalPoint: "8",
     },
 
     {
-      type: "Agrp Investment",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "success",
-      Actions: "",
+      courseCode: "PDE 701t",
+      courseTitle: "History of Education",
+      unit: 2,
+      grade: "A",
+      totalPoint: "8",
     },
     {
-      type: "Wallet Deposit",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      courseCode: "PDE 701",
+      courseTitle: "History of Education",
+      unit: 2,
+      grade: "A",
+      totalPoint: "8ed",
     },
   ];
 
   const data2 = [
     {
-      type: "Wallet Deposit",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      unts: "028",
+      untd: "028",
+      gpts: "067",
+      gptd: "067",
+      gpats: "2.71",
+      gpatd: "2.71",
     },
   ];
 
@@ -65,22 +60,22 @@ const Result = () => {
       <div className='wrapper'>
         <div className='result-wrapper'>
           <div className='result-header'>
-            <div>
+            <div className="logo-div">
               <img src={logo} alt='' />
             </div>
             <div className='result-address'>
-              <div>
+              <div className="sch-address">
                 <h2>FREMONT COLLEGE OF EDUCATION</h2>
                 <p>
                   No.5 Raymond Osuman Street, PMB 2191 Maitama, Abuja, Nigeria.
                 </p>
               </div>
-              <div>
+              <div className="sch-dept">
                 <h2>Post Graduate Diploma in Education</h2>
-                <p>Student First Semester Statement Of Result</p>
+                <h5>Student First Semester Statement Of Result</h5>
               </div>
             </div>
-            <div>
+            <div className="passport-div">
               <img src={passport} alt='' />
             </div>
           </div>
@@ -112,55 +107,24 @@ const Result = () => {
           <div className='table1'>
             <table>
               <tr>
-                <th>Type</th>
-                <th>Value</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th>S/N</th>
+                <th>Course Code</th>
+                <th>Course Title</th>
+                <th>Unit</th>
+                <th>Grade</th>
+                <th>Total Point</th>
               </tr>
               {data.map((val, key) => {
                 return (
                   <tr key={key}>
-                    <td>
-                      <div className='tdDiv'>
-                        <div>
-                          {val.type.includes("Deposit") && (
-                            <img src='/images/credit-card-red.svg' alt='' />
-                          )}
-                          {val.type.includes("Withdrawal") && (
-                            <img src='/images/credit-card-green.svg' alt='' />
-                          )}
-                          {val.type.includes("Investment") && (
-                            <img src='/images/briefcase.svg' alt='' />
-                          )}
-                        </div>
-                        <span>{val.type}</span>
-                      </div>
+                    <td>{key + 1}</td>
+                    <td>{val.courseCode}</td>
+                    <td className='' width='40%'>
+                      {val.courseTitle}
                     </td>
-                    <td>
-                      <div className='mValues'>
-                        <h3>${val.value1}</h3>
-                        <span>${val.value2}</span>
-                      </div>
-                    </td>
-                    <td>
-                      <h3>${val.date}</h3>
-                    </td>
-                    <td
-                      className={`${
-                        val.status === "suspended" ? "colorRed" : "colorGreen"
-                      }  `}
-                    >
-                      {val.status}
-                    </td>
-                    <td>
-                      <button
-                        className='download-btn btn-primary'
-                        onClick={val.actions}
-                      >
-                        Download Result
-                      </button>
-                    </td>
+                    <td className=''>{val.unit}</td>
+                    <td>{val.grade}</td>
+                    <td>{val.totalPoint}</td>
                   </tr>
                 );
               })}
@@ -170,55 +134,22 @@ const Result = () => {
           <div className='table2'>
             <table>
               <tr>
-                <th>Type</th>
-                <th>Value</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th>UNTS</th>
+                <th>UNTD</th>
+                <th>GPTS</th>
+                <th>GPTD</th>
+                <th>GPATS</th>
+                <th>GPATD</th>
               </tr>
               {data2.map((val, key) => {
                 return (
                   <tr key={key}>
-                    <td>
-                      <div className='tdDiv'>
-                        <div>
-                          {val.type.includes("Deposit") && (
-                            <img src='/images/credit-card-red.svg' alt='' />
-                          )}
-                          {val.type.includes("Withdrawal") && (
-                            <img src='/images/credit-card-green.svg' alt='' />
-                          )}
-                          {val.type.includes("Investment") && (
-                            <img src='/images/briefcase.svg' alt='' />
-                          )}
-                        </div>
-                        <span>{val.type}</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div className='mValues'>
-                        <h3>${val.value1}</h3>
-                        <span>${val.value2}</span>
-                      </div>
-                    </td>
-                    <td>
-                      <h3>${val.date}</h3>
-                    </td>
-                    <td
-                      className={`${
-                        val.status === "suspended" ? "colorRed" : "colorGreen"
-                      }  `}
-                    >
-                      {val.status}
-                    </td>
-                    <td>
-                      <button
-                        className='download-btn btn-primary'
-                        onClick={val.actions}
-                      >
-                        Download Result
-                      </button>
-                    </td>
+                    <td>{val.unts}</td>
+                    <td>{val.untd}</td>
+                    <td>{val.gpts}</td>
+                    <td className=''>{val.gptd}</td>
+                    <td>{val.gpats}</td>
+                    <td>{val.gpatd}</td>
                   </tr>
                 );
               })}

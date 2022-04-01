@@ -7,100 +7,124 @@ const TransactionHistory = () => {
   // you might receive from an API
   const data = [
     {
-      type: "Wallet Deposit",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      id: "2",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "maleed",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
     {
-      type: "Cash Withdrawal",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      id: "2l",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "maleed",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
     {
-      type: "Agrp Investment",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "success",
-      Actions: "",
+      id: "2t",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "male",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
     {
-      type: "Wallet Deposit",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      id: "2",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "maleed",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
     {
-      type: "Cash Withdrawal",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      id: "2l",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "maleed",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
     {
-      type: "Agrp Investment",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "success",
-      Actions: "",
+      id: "2t",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "male",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
     {
-      type: "Wallet Deposit",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      id: "2",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "maleed",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
     {
-      type: "Cash Withdrawal",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      id: "2l",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "maleed",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
     {
-      type: "Agrp Investment",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "success",
-      Actions: "",
+      id: "2t",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "male",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
     {
-      type: "Wallet Deposit",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      id: "2",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "maleed",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
     {
-      type: "Cash Withdrawal",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "suspended",
-      Actions: "",
+      id: "2l",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "maleed",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
     {
-      type: "Agrp Investment",
-      value1: 2000000,
-      value2: 560000,
-      date: "2-Nov-2022",
-      status: "success",
-      Actions: "",
+      id: "2t",
+      surname: "Ihimire",
+      firstName: "Peter",
+      age: "24",
+      gender: "male",
+      level: "100",
+      state: "Lagos",
+      action: "https://github.com/",
     },
   ];
   return (
@@ -109,49 +133,46 @@ const TransactionHistory = () => {
         <div className='content'>
           <table>
             <tr>
-              <th>Type</th>
-              <th>Value</th>
-              <th>Date</th>
-              <th>Status</th>
-              <th>Actions</th>
+              <th>S/N</th>
+              <th>Surname</th>
+              <th>First Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Level</th>
+              <th>State</th>
+              <th>Action</th>
             </tr>
             {data.map((val, key) => {
               return (
                 <tr key={key}>
-                  <td>
-                    <div className='tdDiv'>
-                      <div>
-                        {val.type.includes("Deposit") && (
-                          <img src='/images/credit-card-red.svg' alt='' />
-                        )}
-                        {val.type.includes("Withdrawal") && (
-                          <img src='/images/credit-card-green.svg' alt='' />
-                        )}
-                        {val.type.includes("Investment") && (
-                          <img src='/images/briefcase.svg' alt='' />
-                        )}
-                      </div>
-                      <span>{val.type}</span>
-                    </div>
+                  <td className='' width='5%'>
+                    {key + 1}
                   </td>
-                  <td>
-                    <div className='mValues'>
-                      <h3>${val.value1}</h3>
-                      <span>${val.value2}</span>
-                    </div>
+                  <td className='' width='12%'>
+                    {val.surname}
                   </td>
-                  <td>
-                    <h3>${val.date}</h3>
+                  <td className='' width='12%'>
+                    {val.firstName}
                   </td>
-                  <td
-                    className={`${
-                      val.status === "suspended" ? "colorRed" : "colorGreen"
-                    }  `}
-                  >
-                    {val.status}
+                  <td className='' width='8%'>
+                    {val.age}
                   </td>
-                  <td>
-                    <button className="download-btn btn-primary" onClick={val.actions}>Download Result</button>
+                  <td className='' width='8%'>
+                    {val.gender}
+                  </td>
+                  <td className='' width='8%'>
+                    {val.level} <span>level</span>
+                  </td>
+                  <td className='' width='12%'>
+                    {val.state} <span>state</span>
+                  </td>
+                  <td width='12%'>
+                    <button
+                      className='download-btn btn-primary'
+                      onClick={val.actions}
+                    >
+                      Download Result
+                    </button>
                   </td>
                 </tr>
               );

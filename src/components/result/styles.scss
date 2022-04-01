@@ -25,18 +25,78 @@
         display: flex;
         justify-content: space-between;
 
+        .logo-div {
+          width: 100px;
+          height: 100px;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .passport-div {
+          width: 100px;
+          height: 100px;
+
+          img {
+            width: 100%;
+          }
+        }
+
         .result-address {
           text-align: center;
           margin: 0px 10px;
+
+          .sch-address {
+            h2 {
+              font-style: normal;
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 19px;
+              color: #4f4f4f;
+            }
+
+            p {
+              font-style: normal;
+              font-weight: 400;
+              font-size: 12px;
+              line-height: 14px;
+              color: #4f4f4f;
+            }
+          }
+
+          .sch-dept {
+            h2 {
+              font-style: normal;
+              font-weight: 600;
+              font-size: 20px;
+              line-height: 24px;
+              color: #333333;
+            }
+            h5 {
+              font-style: normal;
+              font-weight: 700;
+              font-size: 12px;
+              line-height: 14px;
+
+              color: #333333;
+            }
+          }
         }
       }
       .result-user {
         display: flex;
         justify-content: space-between;
+        margin: 50px 0;
 
         .result-user-item {
           display: flex;
           align-items: center;
+          margin-bottom: 20px;
+
+          &:last-of-type {
+            margin-bottom: 0px;
+          }
 
           span {
             margin-left: 20px;
@@ -45,7 +105,7 @@
       }
       .table1 {
         width: 100%;
-        height: 400px;
+        height: 330px;
         overflow: scroll;
         overflow-x: hidden;
         margin-bottom: 20px;
@@ -62,13 +122,6 @@
           display: none;
         }
 
-        &::-webkit-scrollbar-corner {
-          width: 25px;
-        }
-        &::-webkit-scrollbar-button {
-          width: 5px;
-          background-color: red;
-        }
         &::-webkit-scrollbar-track-piece {
           // box-shadow: inset 0 0 5px grey;
           border-radius: 0px;
@@ -84,30 +137,33 @@
         }
 
         table {
-          // border: 2px solid forestgreen;
           width: 100%;
           height: 200px;
           text-align: left;
 
-          // border-collapse: collapse;
-
           tr {
-            background-color: var(--white) !important;
             border-radius: 50px !important;
+          }
+
+          tr:nth-child(even) {
+            background-color: #f2f2f2;
+            // height: 40px;
           }
         }
 
         th {
           // border-bottom: 1px solid black;
           background-color: var(--sec-blue);
-          padding: 20px 10px;
+          color: var(--white);
+          padding: 15px 10px;
           margin-bottom: 10px;
-          // border-bottom: 5px solid black;
+  
         }
 
         td {
-          // text-align: center;
-          padding: 10px 10px;
+   
+          padding: 15px 10px;
+          // height: 40px;
 
           h3 {
             font-size: 14px;
@@ -121,40 +177,9 @@
             border-radius: 0px;
           }
         }
-        .tdDiv {
-          display: flex;
-          align-items: center;
-
-          span {
-            margin-left: 10px;
-            color: #373839;
-            font-size: 14px;
-            line-height: 17px;
-          }
-        }
-
-        .mValues {
-          h3 {
-            font-size: 14px;
-            line-height: 17px;
-            color: #65676f;
-          }
-          span {
-            color: #65676f;
-            font-size: 12px;
-            line-height: 15px;
-          }
-        }
-        .colorRed {
-          color: #ea1d1d;
-        }
-
-        .colorGreen {
-          color: rgb(6, 175, 6);
-        }
       }
       .table2 {
-        width: 100%;
+        width: 80%;
 
         height: 150px;
         overflow: scroll;
@@ -199,25 +224,28 @@
           height: 100px;
           text-align: left;
 
-          // border-collapse: collapse;
-
           tr {
-            background-color: var(--white) !important;
+            // background-color: var(--white) !important;
             border-radius: 50px !important;
+          }
+
+          tr:nth-child(even) {
+            background-color: #f2f2f2;
+            // height: 40px;
           }
         }
 
         th {
           // border-bottom: 1px solid black;
           background-color: var(--sec-blue);
-          padding: 20px 10px;
+          color: var(--white);
+          padding: 15px 10px;
           margin-bottom: 10px;
-          // border-bottom: 5px solid black;
         }
 
         td {
           // text-align: center;
-          padding: 10px 10px;
+          padding: 15px 10px;
 
           h3 {
             font-size: 14px;
@@ -231,37 +259,6 @@
             border-radius: 0px;
           }
         }
-        .tdDiv {
-          display: flex;
-          align-items: center;
-
-          span {
-            margin-left: 10px;
-            color: #373839;
-            font-size: 14px;
-            line-height: 17px;
-          }
-        }
-
-        .mValues {
-          h3 {
-            font-size: 14px;
-            line-height: 17px;
-            color: #65676f;
-          }
-          span {
-            color: #65676f;
-            font-size: 12px;
-            line-height: 15px;
-          }
-        }
-        .colorRed {
-          color: #ea1d1d;
-        }
-
-        .colorGreen {
-          color: rgb(6, 175, 6);
-        }
       }
 
       .remarks {
@@ -273,9 +270,6 @@
       }
 
       .signature-wrapper {
-        // padding-bottom: 20px;
-        // margin-bottom: 200px;
-
         .signature {
           width: 300px;
           border: solid 1px var(--black);

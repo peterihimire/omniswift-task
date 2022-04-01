@@ -354,17 +354,23 @@ input[type="radio"] {
   width: 100%;
   position: relative;
   height: 50px;
-  color: rgb(121, 121, 121) !important;
+
   max-width: 100%;
+
+  select {
+    border: 1.5px solid #adb7be;
+    color: #adb7be !important;
+  }
 
   label {
     position: absolute !important;
-    top: -10px !important;
-    left: 15px !important;
+    top: -12px !important;
+    left: 10px !important;
     margin-bottom: 0px !important;
-    font-size: 10px;
-    line-height: 12px;
-    color: #65676f;
+    font-size: 14px;
+    line-height: 16px;
+    color: #343434;
+
     background-color: var(--white);
     padding: 5px;
   }

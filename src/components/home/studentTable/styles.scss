@@ -40,21 +40,14 @@
       }
 
       &::-webkit-scrollbar {
-        width: 24px;
-        height: 24px;
+        width: 10px;
+        height: 10px;
       }
 
-      &::-webkit-scrollbar-corner {
-        width: 25px;
-      }
-      &::-webkit-scrollbar-button {
-        width: 5px;
-        background-color: red;
-      }
       &::-webkit-scrollbar-track-piece {
         // box-shadow: inset 0 0 5px grey;
         border-radius: 0px;
-        background: #F8F8F8;;
+        background: #f8f8f8;
       }
 
       &::-webkit-scrollbar-thumb {
@@ -70,8 +63,6 @@
         width: 100%;
         height: 200px;
         text-align: left;
-
-        // border-collapse: collapse;
 
         tr {
           background-color: var(--white) !important;
@@ -90,13 +81,14 @@
       td {
         // text-align: center;
         padding: 10px 10px;
+        border-bottom: solid 1px #ececec;
 
         h3 {
           font-size: 14px;
           line-height: 17px;
           color: #65676f;
         }
-        .download-btn{
+        .download-btn {
           font-size: 12px;
           height: 35px;
           width: 126px;
