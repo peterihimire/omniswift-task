@@ -1,3 +1,21 @@
 .result {
-  
+  width: 100%;
+  padding: 50px 0 20px 0px;
+
+  .wrapper {
+    width: 85%;
+    margin: 0 auto;
+    background-color: var(--white);
+
+    // height: 100%;
+    max-width: var(--wrapper-max-width);
+
+    @media (max-width: 1387px) {
+      width: 90%;
+    }
+
+    @media (max-width: 1315px) {
+      width: 95%;
+    }
+  }
 }
