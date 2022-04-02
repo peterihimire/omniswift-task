@@ -21,7 +21,12 @@
       line-height: 48px;
       letter-spacing: 0.75px;
       color: #343434;
-      
+
+      @media (max-width: 700px) {
+        font-size: 30px;
+        line-height: 38px;
+        text-align: center;
+      }
     }
 
     .search-wrapper {
@@ -38,10 +43,9 @@
       line-height: 32px;
       margin-bottom: 50px;
     }
- 
+
     form {
       flex: 1;
-    
 
       @media (max-width: 903px) {
         width: var(--full);
@@ -61,6 +65,10 @@
 
         &.mb48 {
           margin-bottom: 48px;
+        }
+
+        @media (max-width: 900px) {
+          grid-template-columns: repeat(2, 1fr);
         }
 
         @media (max-width: 600px) {
@@ -84,18 +92,5 @@
         }
       }
     }
-
-    // .grid {
-    //   width: 100%;
-    //   margin-top: 57px;
-    //   display: grid;
-    //   grid-template-columns: repeat(3, 1fr);
-    //   gap: 30px;
-
-    //   @media screen and (max-width: 1200px) {
-    //     grid-template-columns: repeat(auto-fit, minmax(200px, 377px));
-    //     justify-content: center;
-    //   }
-    // }
   }
 }
