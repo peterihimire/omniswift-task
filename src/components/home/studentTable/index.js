@@ -19,9 +19,6 @@ const StudentsTable = () => {
     };
   });
 
-  const studentsData = allStudents;
-  console.log(error);
-
   useEffect(() => {
     dispatch(actions.students());
   }, [dispatch]);
@@ -51,13 +48,13 @@ const StudentsTable = () => {
 
   return (
     <>
-      {error && <AlertBox>{"No record found"}</AlertBox>}
+      {error && <AlertBox>{"No record found for this search..."}</AlertBox>}
       <section className='studentTable'>
         <div className='wrapper'>
           <div className='content'>
-            {studentsData.length === 0 || null || undefined ? (
+            {allStudents.length === 0 || null || undefined ? (
               <div className='no-result'>
-                <h3>NO RESULT AVAILABLE</h3>
+                <h3>NO RECORD FOUND</h3>
               </div>
             ) : (
               <table>
@@ -72,7 +69,7 @@ const StudentsTable = () => {
                     <th>State</th>
                     <th>Action</th>
                   </tr>
-                  {studentsData.map((val, key) => {
+                  {allStudents.map((val, key) => {
                     return (
                       <tr key={key}>
                         <td className='' width='5%'>

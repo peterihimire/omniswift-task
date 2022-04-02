@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../store/actions";
 import Loader from "react-loader-spinner";
 import ReactToPrint from "react-to-print";
+import AlertBox from "../ui/alert";
 
 import "./styles.scss";
 
@@ -23,7 +24,7 @@ const Result = (props) => {
       loading: state.students.loading,
     };
   });
-  console.log(error);
+
 
   // setting the id
   useEffect(() => {
@@ -46,6 +47,16 @@ const Result = (props) => {
     setStudentRes3(studentsResult3);
     setStudentRes4(studentsResult4);
   }, [result.data?.result]);
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        dispatch(actions.studentsError(null));
+      }, 4000);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error]);
 
   // used inline styling to target the pdf file mark-up style
   const resultWrapper = {
@@ -217,6 +228,8 @@ const Result = (props) => {
             content={() => componentRef.current}
           />
         </div>
+
+        {error && <AlertBox>{"An error occurred !"}</AlertBox>}
 
         <div
           id='content'
