@@ -7,17 +7,16 @@ import ReactToPrint from "react-to-print";
 import "./styles.scss";
 
 const Result = (props) => {
-  const [studentRes, setStudentRes] = useState({});
-  const [studentRes2, setStudentRes2] = useState({});
-  const [studentRes3, setStudentRes3] = useState({});
-  const [studentRes4, setStudentRes4] = useState({});
-
-
   const dispatch = useDispatch();
   const componentRef = useRef();
 
-
+  const [studentRes1, setStudentRes1] = useState({});
+  const [studentRes2, setStudentRes2] = useState({});
+  const [studentRes3, setStudentRes3] = useState({});
+  const [studentRes4, setStudentRes4] = useState({});
   const [id, setId] = useState("");
+
+
 
   const { result, loading, error } = useSelector((state) => {
     return {
@@ -28,56 +27,52 @@ const Result = (props) => {
   });
   console.log(error);
 
+  // setting the id
   useEffect(() => {
     setId(props.match.params.id);
   }, [props.match.params.id]);
-  console.log(id);
 
+  // dispatching result action with the id
   useEffect(() => {
     dispatch(actions.result({ id }));
   }, [dispatch, id]);
 
+  // had to set individual item of result data manually instead of using array map, because during styling of the tr nth-child(even), its imposible to target sudo element nth-child with inline styling
   useEffect(() => {
-    let studentsResult = result.data?.result[0];
-    let studentsResult2 = result.data?.result[1];
-    let studentsResult3 = result.data?.result[2];
-    let studentsResult4 = result.data?.result[3];
-    setStudentRes(studentsResult);
+    const studentsResult1 = result.data?.result[0];
+    const studentsResult2 = result.data?.result[1];
+    const studentsResult3 = result.data?.result[2];
+    const studentsResult4 = result.data?.result[3];
+    setStudentRes1(studentsResult1);
     setStudentRes2(studentsResult2);
     setStudentRes3(studentsResult3);
     setStudentRes4(studentsResult4);
   }, [result.data?.result]);
 
-  if (loading)
-    return (
-      <div className='loader'>
-        <Loader
-          visible={loading}
-          type='Bars'
-          color='#46C35F'
-          height={100}
-          width={100}
-        />
-      </div>
-    );
-
+  // used inline styling to target the pdf file mark-up style
   const resultWrapper = {
     padding: "40px 20px",
   };
+
   const resultHeader = {
     display: "flex",
     justifyContent: "space-between",
   };
+
   const logoDiv = {
     width: "100px",
     height: "100px",
   };
+
   const resultAddress = {
     textAlign: "center",
     margin: "0px 10px",
   };
+
   const schAddress = {};
+
   const schDept = {};
+
   const passportDiv = {
     width: "100px",
     height: "100px",
@@ -136,15 +131,19 @@ const Result = (props) => {
   const tRow1 = {
     backgroundColor: "#f2f2f2",
   };
+
   const tRow2 = {
     backgroundColor: "#ffffff",
   };
+
   const tRow3 = {
     backgroundColor: "#f2f2f2",
   };
+
   const tRow4 = {
     backgroundColor: "#ffffff",
   };
+
   const tData = {
     padding: "15px 10px",
   };
@@ -157,6 +156,7 @@ const Result = (props) => {
   const span = {
     marginLeft: "20px",
   };
+
   const addTitle = {
     fontStyle: "normal",
     fontWeight: "700",
@@ -194,6 +194,19 @@ const Result = (props) => {
   const headWidth = {
     width: "80px",
   };
+
+  if (loading)
+    return (
+      <div className='loader'>
+        <Loader
+          visible={loading}
+          type='Bars'
+          color='#46C35F'
+          height={100}
+          width={100}
+        />
+      </div>
+    );
 
   return (
     <div className='result'>
@@ -273,6 +286,7 @@ const Result = (props) => {
                   <th style={tHead}>Grade</th>
                   <th style={tHead}>Total Point</th>
                 </tr>
+
                 {/* {result.data?.result?.map((val, key) => {
                   return (
                     <tr key={key}>
@@ -290,15 +304,15 @@ const Result = (props) => {
 
                 <tr style={tRow1}>
                   <td style={tData}>{"1"}</td>
-                  <td style={tData}>{studentRes?.coursecode}</td>
+                  <td style={tData}>{studentRes1?.coursecode}</td>
                   <td style={tData} className='' width='40%'>
-                    {studentRes?.title}
+                    {studentRes1?.title}
                   </td>
                   <td style={tData} className=''>
-                    {studentRes?.credit_unit}
+                    {studentRes1?.credit_unit}
                   </td>
-                  <td style={tData}>{studentRes?.grade}</td>
-                  <td style={tData}>{studentRes?.total_point}</td>
+                  <td style={tData}>{studentRes1?.grade}</td>
+                  <td style={tData}>{studentRes1?.total_point}</td>
                 </tr>
 
                 <tr style={tRow2}>
@@ -339,7 +353,6 @@ const Result = (props) => {
                   <td style={tData}>{studentRes4?.grade}</td>
                   <td style={tData}>{studentRes4?.total_point}</td>
                 </tr>
-
               </tbody>
             </table>
           </div>

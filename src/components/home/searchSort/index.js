@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import "./styles.scss";
 import Select from "../../ui/customSelect";
 import { useDispatch } from "react-redux";
 import * as actions from "../../../store/actions";
+
+import "./styles.scss";
 
 const SearchSort = () => {
   const dispatch = useDispatch();

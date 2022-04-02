@@ -11,8 +11,6 @@ const StudentsTable = () => {
   const dispatch = useDispatch();
 
   const { allStudents, loading, error } = useSelector((state) => {
-    console.log(state);
-
     return {
       allStudents: state.students.allStudents,
       error: state.students.error,
@@ -41,10 +39,10 @@ const StudentsTable = () => {
     );
 
   return (
-    <section className='transactionHistory'>
+    <section className='studentTable'>
       <div className='wrapper'>
         <div className='content'>
-          {studentsData.length === 0 ? (
+          {studentsData.length === 0 || null || undefined ? (
             <div className='no-result'>
               <h3>NO RESULT AVAILABLE</h3>
             </div>
@@ -87,7 +85,6 @@ const StudentsTable = () => {
                       </td>
                       <td width='12%'>
                         <button
-                          // to={`/result/${val.id}`}
                           className='download-btn btn-primary'
                           onClick={() => {
                             history.push(`/result/${val.id}`);

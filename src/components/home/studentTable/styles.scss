@@ -1,4 +1,4 @@
-.transactionHistory {
+.studentTable {
   width: 100%;
 
   .wrapper {
@@ -6,8 +6,6 @@
     margin: 0 auto;
     padding: 40px;
     background-color: var(--white);
-
-    // height: 100%;
     max-width: var(--wrapper-max-width);
 
     @media (max-width: 1387px) {
@@ -51,7 +49,6 @@
       }
 
       &::-webkit-scrollbar-track-piece {
-        // box-shadow: inset 0 0 5px grey;
         border-radius: 0px;
         background: #f8f8f8;
       }
@@ -65,7 +62,6 @@
       }
 
       table {
-        // border: 2px solid forestgreen;
         width: 100%;
         height: 200px;
         text-align: left;
@@ -78,15 +74,12 @@
       }
 
       th {
-        // border-bottom: 1px solid black;
         background-color: #f9f9fa !important;
         padding: 20px 10px;
         margin-bottom: 10px;
-        // border-bottom: 5px solid black;
       }
 
       td {
-        // text-align: center;
         padding: 10px 10px;
         border-bottom: solid 1px #ececec;
 
@@ -101,37 +94,6 @@
           width: 126px;
           border-radius: 0px;
         }
-      }
-      .tdDiv {
-        display: flex;
-        align-items: center;
-
-        span {
-          margin-left: 10px;
-          color: #373839;
-          font-size: 14px;
-          line-height: 17px;
-        }
-      }
-
-      .mValues {
-        h3 {
-          font-size: 14px;
-          line-height: 17px;
-          color: #65676f;
-        }
-        span {
-          color: #65676f;
-          font-size: 12px;
-          line-height: 15px;
-        }
-      }
-      .colorRed {
-        color: #ea1d1d;
-      }
-
-      .colorGreen {
-        color: rgb(6, 175, 6);
       }
     }
   }

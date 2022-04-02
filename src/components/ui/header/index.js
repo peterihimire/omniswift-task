@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
-import "./styles.scss";
 import { Link } from "react-router-dom";
 import Nav from "../nav";
 import { useLocation } from "react-router-dom";
 
+import "./styles.scss";
+
 const Header = ({ isOpen, clicked }) => {
+  const router = useLocation();
+  
   const [isDropOpen, setDropOpen] = useState(false);
   const [bgChange, setBgChange] = useState(false);
 
 
-  const router = useLocation();
+
 
   const dropHandler = (payload) => {
     setDropOpen(payload);
