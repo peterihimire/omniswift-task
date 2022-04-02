@@ -18,6 +18,18 @@
       width: 95%;
     }
 
+    .save-btn-div {
+      background-color: var(--main-bg);
+
+      .save-btn {
+        font-size: 12px;
+        height: 35px !important;
+        width: 126px;
+        border-radius: 0px;
+        margin-bottom: 20px;
+      }
+    }
+
     .result-wrapper {
       padding: 40px 20px;
 
@@ -54,6 +66,7 @@
               font-size: 16px;
               line-height: 19px;
               color: #4f4f4f;
+              margin-bottom: 10px;
             }
 
             p {
@@ -62,6 +75,10 @@
               font-size: 12px;
               line-height: 14px;
               color: #4f4f4f;
+              margin-bottom: 10px;
+              width: 250px;
+              margin-left: auto;
+              margin-right: auto;
             }
           }
 
@@ -72,6 +89,7 @@
               font-size: 20px;
               line-height: 24px;
               color: #333333;
+              margin-bottom: 10px;
             }
             h5 {
               font-style: normal;
@@ -80,6 +98,7 @@
               line-height: 14px;
 
               color: #333333;
+              margin-bottom: 10px;
             }
           }
         }
@@ -140,6 +159,7 @@
           width: 100%;
           height: 200px;
           text-align: left;
+          border-collapse: collapse;
 
           tr {
             border-radius: 50px !important;
@@ -147,7 +167,6 @@
 
           tr:nth-child(even) {
             background-color: #f2f2f2;
-            // height: 40px;
           }
         }
 
@@ -157,11 +176,9 @@
           color: var(--white);
           padding: 15px 10px;
           margin-bottom: 10px;
-  
         }
 
         td {
-   
           padding: 15px 10px;
           // height: 40px;
 
@@ -223,6 +240,7 @@
           width: 100%;
           height: 100px;
           text-align: left;
+          border-collapse: collapse;
 
           tr {
             // background-color: var(--white) !important;
@@ -271,7 +289,7 @@
 
       .signature-wrapper {
         .signature {
-          width: 300px;
+          width: 200px;
           border: solid 1px var(--black);
           margin-bottom: 20px;
         }
