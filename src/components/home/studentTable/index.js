@@ -12,8 +12,7 @@ const StudentsTable = () => {
 
   const { allStudents, loading, error } = useSelector((state) => {
     console.log(state);
-    // console.log(error, loading);
-    // console.log(allStudents);
+
     return {
       allStudents: state.students.allStudents,
       error: state.students.error,
@@ -23,6 +22,7 @@ const StudentsTable = () => {
 
   const studentsData = allStudents;
   console.log(studentsData);
+  console.log(error);
 
   useEffect(() => {
     dispatch(actions.students());

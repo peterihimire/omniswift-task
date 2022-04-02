@@ -31,6 +31,7 @@ const Result = (props) => {
       loading: state.students.loading,
     };
   });
+  console.log(error);
 
   useEffect(() => {
     setId(props.match.params.id);
@@ -203,6 +204,10 @@ const Result = (props) => {
     marginBottom: "10px",
   };
 
+  const headWidth = {
+    width: "80px",
+  };
+
   return (
     <div className='result'>
       <div className='wrapper'>
@@ -247,24 +252,24 @@ const Result = (props) => {
           <div className='result-user' style={resultUser}>
             <div>
               <div className='result-user-item' style={resultUserItem}>
-                <h4>Name:</h4>
+                <h4 style={headWidth}>Name:</h4>
                 <span style={span}>
                   {result.data?.surname + " " + result.data?.firstname}
                 </span>
               </div>
               <div className='result-user-item' style={resultUserItem}>
-                <h4>level:</h4>
+                <h4 style={headWidth}>level:</h4>
                 <span style={span}>{result.data?.level}</span>
               </div>
             </div>
 
             <div>
               <div className='result-user-item' style={resultUserItem}>
-                <h4>Reg. No.:</h4>
+                <h4 style={headWidth}>Reg. No.:</h4>
                 <span style={span}>{result.data?.reg_no}</span>
               </div>
               <div className='result-user-item' style={resultUserItem}>
-                <h4>Session:</h4>
+                <h4 style={headWidth}>Session:</h4>
                 <span style={span}>{result.data?.session}</span>
               </div>
             </div>
