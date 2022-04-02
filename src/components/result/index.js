@@ -16,8 +16,6 @@ const Result = (props) => {
   const [studentRes4, setStudentRes4] = useState({});
   const [id, setId] = useState("");
 
-
-
   const { result, loading, error } = useSelector((state) => {
     return {
       result: state.students.result,
@@ -60,8 +58,8 @@ const Result = (props) => {
   };
 
   const logoDiv = {
-    width: "100px",
-    height: "100px",
+    width: "120px",
+    height: "120px",
   };
 
   const resultAddress = {
@@ -74,8 +72,8 @@ const Result = (props) => {
   const schDept = {};
 
   const passportDiv = {
-    width: "100px",
-    height: "100px",
+    width: "120px",
+    height: "120px",
   };
   const resultUser = {
     display: "flex",
@@ -89,7 +87,7 @@ const Result = (props) => {
   };
   const table1 = {
     width: "100%",
-    height: "330px",
+    height: "250px",
     marginBottom: "20px",
     backgroundColor: "white",
   };
@@ -108,7 +106,7 @@ const Result = (props) => {
     borderCollapse: "collapse",
   };
   const remarks = {
-    marginBottom: "100px",
+    marginBottom: "150px",
   };
   const remarksItem = {
     display: "flex",
@@ -228,7 +226,7 @@ const Result = (props) => {
         >
           <div className='result-header' style={resultHeader}>
             <div className='logo-div' style={logoDiv}>
-              <img src={result.logo} alt='' />
+              <img style={{ width: "100%" }} src={result.logo} alt='' />
             </div>
             <div className='result-address' style={resultAddress}>
               <div className='sch-address' style={schAddress}>
@@ -245,7 +243,11 @@ const Result = (props) => {
               </div>
             </div>
             <div className='passport-div' style={passportDiv}>
-              <img src={result.profile_picture} alt='' />
+              <img
+                style={{ width: "100%" }}
+                src={result.profile_picture}
+                alt=''
+              />
             </div>
           </div>
 
