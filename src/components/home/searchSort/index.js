@@ -1,7 +1,7 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "./styles.scss";
 import Select from "../../ui/customSelect";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import * as actions from "../../../store/actions";
 
 const SearchSort = () => {
@@ -12,8 +12,6 @@ const SearchSort = () => {
     state: "",
     gender: "",
   });
-  // const dispatch = useDispatch();
-  // console.log(actions);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,13 +27,9 @@ const SearchSort = () => {
     dispatch(actions.searchStudent({ ...fields }));
   };
 
-  console.log(fields);
-
   return (
     <section className='searchSort'>
       <div className={` wrapper`}>
-        {/* <div className='grid'> */}
-        {/* <div className="search-hearder"></div> */}
         <h1>Student Data Table</h1>
         <div className='search-wrapper'>
           <div className='form-title'>Filter Student Table By:</div>
@@ -46,12 +40,9 @@ const SearchSort = () => {
                   name='age'
                   id='age'
                   labelText='Age'
-                  // required
-                  // defaultValue=''
                   wrapClass='selectWidth'
                   onChange={handleInputChange}
                   value={fields.age}
-                  // onChange={sortByInput}
                 >
                   <option value='' disabled>
                     select age
@@ -69,9 +60,7 @@ const SearchSort = () => {
                 <Select
                   name='state'
                   labelText='State'
-                  // required
                   id='state'
-                  // defaultValue=''
                   wrapClass='selectWidth'
                   onChange={handleInputChange}
                   value={fields.state}
@@ -88,9 +77,7 @@ const SearchSort = () => {
                 <Select
                   name='level'
                   labelText='Level'
-                  // required
                   id='level'
-                  // defaultValue=''
                   wrapClass='selectWidth'
                   onChange={handleInputChange}
                   value={fields.level}
@@ -108,9 +95,7 @@ const SearchSort = () => {
                 <Select
                   name='gender'
                   labelText='Gender'
-                  // required
                   id='gender'
-                  // defaultValue=''
                   wrapClass='selectWidth'
                   onChange={handleInputChange}
                   value={fields.gender}
@@ -131,8 +116,6 @@ const SearchSort = () => {
             </div>
           </form>
         </div>
-
-        {/* </div> */}
       </div>
     </section>
   );

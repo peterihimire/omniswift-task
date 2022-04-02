@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../store/actions";
 import Loader from "react-loader-spinner";
@@ -12,19 +11,15 @@ const Result = (props) => {
   const [studentRes2, setStudentRes2] = useState({});
   const [studentRes3, setStudentRes3] = useState({});
   const [studentRes4, setStudentRes4] = useState({});
-  // const [width] = useState(641);
-  console.log(props);
-  console.log(props.match.params.id);
-  const location = useLocation();
+
+
   const dispatch = useDispatch();
   const componentRef = useRef();
-  console.log(location);
+
 
   const [id, setId] = useState("");
 
   const { result, loading, error } = useSelector((state) => {
-    console.log(state);
-
     return {
       result: state.students.result,
       error: state.students.error,
@@ -41,14 +36,6 @@ const Result = (props) => {
   useEffect(() => {
     dispatch(actions.result({ id }));
   }, [dispatch, id]);
-
-  // useEffect(() => {
-  //   if (window.innerWidth < width) {
-  //     alert("Place your phone in landscape mode for the best experience");
-  //   }
-  // }, [width]);
-  // console.log(result);
-  // console.log(width);
 
   useEffect(() => {
     let studentsResult = result.data?.result[0];
@@ -353,36 +340,6 @@ const Result = (props) => {
                   <td style={tData}>{studentRes4?.total_point}</td>
                 </tr>
 
-                {/* <tr>
-                  <td>{"2"}</td>
-                  <td>{studentRes[1]?.coursecode}</td>
-                  <td className='' width='40%'>
-                    {studentRes[1]?.title}
-                  </td>
-                  <td className=''>{studentRes[1]?.credit_unit}</td>
-                  <td>{studentRes[1]?.grade}</td>
-                  <td>{studentRes[1]?.total_point}</td>
-                </tr>
-                <tr>
-                  <td>{"3"}</td>
-                  <td>{studentRes[2]?.coursecode}</td>
-                  <td className='' width='40%'>
-                    {studentRes[2]?.title}
-                  </td>
-                  <td className=''>{studentRes[2]?.credit_unit}</td>
-                  <td>{studentRes[2]?.grade}</td>
-                  <td>{studentRes[2]?.total_point}</td>
-                </tr>
-                <tr>
-                  <td>{"4"}</td>
-                  <td>{studentRes[3]?.coursecode}</td>
-                  <td className='' width='40%'>
-                    {studentRes[3]?.title}
-                  </td>
-                  <td className=''>{studentRes[3]?.credit_unit}</td>
-                  <td>{studentRes[3]?.grade}</td>
-                  <td>{studentRes[3]?.total_point}</td>
-                </tr> */}
               </tbody>
             </table>
           </div>

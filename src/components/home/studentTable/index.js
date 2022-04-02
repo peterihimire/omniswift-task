@@ -21,7 +21,6 @@ const StudentsTable = () => {
   });
 
   const studentsData = allStudents;
-  console.log(studentsData);
   console.log(error);
 
   useEffect(() => {

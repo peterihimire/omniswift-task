@@ -5,7 +5,6 @@
   top: 0;
   left: 0;
   z-index: 300;
-  // background: var(--black); // this should be transparent
   background: transparent;
   transition: background 0.4s ease-in-out;
 
@@ -14,7 +13,6 @@
   }
   &.bgLight {
     background-color: var(--white);
-    // background: rgba(252, 252, 252, 0.986);
   }
   .wrapper {
     width: 85%;
@@ -37,7 +35,6 @@
     }
 
     .logo {
-      // width: fit-content;
       width: 200px;
       height: fit-content;
       margin-bottom: 7px;
