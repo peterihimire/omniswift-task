@@ -41,7 +41,7 @@ export const students = () => {
       console.log(response);
       dispatch(setStudents(response.data.data.students));
     } catch (err) {
-      dispatch(studentsError(err.response.data.error.message));
+      dispatch(studentsError(err.response.data.data.message));
     } finally {
       dispatch(studentsStart(false));
     }
@@ -65,7 +65,8 @@ export const searchStudent = ({ level, age, state, gender }) => {
       console.log(response);
       dispatch(setStudents(response.data.data.students));
     } catch (err) {
-      dispatch(studentsError(err.response.data.error.message));
+      console.log(err);
+      dispatch(studentsError(err));
     } finally {
       dispatch(studentsStart(false));
     }

@@ -387,7 +387,7 @@ const Result = (props) => {
 
           <div className='remarks' style={remarks}>
             <div className='remarks-item' style={remarksItem}>
-              <h4>Remarks:</h4>
+              <p>Remarks:</p>
               <span style={mainRemark}>
                 {result.data?.cummulative?.remarks}
               </span>
