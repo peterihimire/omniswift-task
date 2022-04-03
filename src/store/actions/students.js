@@ -38,7 +38,7 @@ export const students = () => {
 
     try {
       const response = await axios.get("viewAllData");
-      console.log(response);
+
       dispatch(setStudents(response.data.data.students));
     } catch (err) {
       dispatch(studentsError(err.response.data.data.message));
@@ -54,6 +54,11 @@ export const searchStudent = ({ level, age, state, gender }) => {
   return async (dispatch) => {
     dispatch(studentsStart(true));
 
+    if (level === "" && age === "" && state === "" && gender === "") {
+      dispatch(studentsStart(false));
+      return dispatch(studentsError("Select a valid search filter..."));
+    }
+
     try {
       const response = await axios.post("filterData", {
         level,
@@ -62,11 +67,10 @@ export const searchStudent = ({ level, age, state, gender }) => {
         gender,
       });
 
-      console.log(response);
       dispatch(setStudents(response.data.data.students));
     } catch (err) {
       console.log(err);
-      dispatch(studentsError(err));
+      dispatch(studentsError("No record found for this search..."));
     } finally {
       dispatch(studentsStart(false));
     }
@@ -81,7 +85,7 @@ export const result = ({ id }) => {
 
     try {
       const response = await axios.post(`viewResult/${id}`);
-      console.log(response.data);
+
       dispatch(setResult(response.data));
     } catch (err) {
       dispatch(studentsError(err.response?.data));

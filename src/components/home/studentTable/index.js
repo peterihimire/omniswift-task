@@ -46,7 +46,7 @@ const StudentsTable = () => {
           />
         </div>
       )}
-      {error && <AlertBox>{"No record found for this search..."}</AlertBox>}
+      {error && <AlertBox>{error}</AlertBox>}
       <section className='studentTable'>
         <div className='wrapper'>
           <div className='content'>
