@@ -33,21 +33,19 @@ const StudentsTable = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
 
-  if (loading)
-    return (
-      <div className='loader'>
-        <Loader
-          visible={loading}
-          type='Bars'
-          color='#46C35F'
-          height={100}
-          width={100}
-        />
-      </div>
-    );
-
   return (
     <>
+      {loading && (
+        <div className='loader'>
+          <Loader
+            visible={loading}
+            type='Bars'
+            color='#46C35F'
+            height={100}
+            width={100}
+          />
+        </div>
+      )}
       {error && <AlertBox>{"No record found for this search..."}</AlertBox>}
       <section className='studentTable'>
         <div className='wrapper'>

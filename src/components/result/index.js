@@ -25,7 +25,6 @@ const Result = (props) => {
     };
   });
 
-
   // setting the id
   useEffect(() => {
     setId(props.match.params.id);
@@ -204,105 +203,107 @@ const Result = (props) => {
     width: "80px",
   };
 
-  if (loading)
-    return (
-      <div className='loader'>
-        <Loader
-          visible={loading}
-          type='Bars'
-          color='#46C35F'
-          height={100}
-          width={100}
-        />
-      </div>
-    );
+
 
   return (
-    <div className='result'>
-      <div className='wrapper'>
-        <div className='save-btn-div'>
-          <ReactToPrint
-            trigger={() => (
-              <button className='btn-primary save-btn'>SAVE FILE</button>
-            )}
-            content={() => componentRef.current}
+    <>
+      {loading && (
+        <div className='loader'>
+          <Loader
+            visible={loading}
+            type='Bars'
+            color='#46C35F'
+            height={100}
+            width={100}
           />
         </div>
-
-        {error && <AlertBox>{"An error occurred !"}</AlertBox>}
-
-        <div
-          id='content'
-          className='result-wrapper'
-          ref={componentRef}
-          style={resultWrapper}
-        >
-          <div className='result-header' style={resultHeader}>
-            <div className='logo-div' style={logoDiv}>
-              <img style={{ width: "100%" }} src={result.logo} alt='' />
-            </div>
-            <div className='result-address' style={resultAddress}>
-              <div className='sch-address' style={schAddress}>
-                <h2 style={addTitle}>FREMONT COLLEGE OF EDUCATION</h2>
-                <p style={addPara}>
-                  No.5 Raymond Osuman Street, PMB 2191 Maitama, Abuja, Nigeria.
-                </p>
-              </div>
-              <div className='sch-dept' style={schDept}>
-                <h2 style={deptTitle}>Post Graduate Diploma in Education</h2>
-                <h5 style={deptSubTitle}>
-                  Student First Semester Statement Of Result
-                </h5>
-              </div>
-            </div>
-            <div className='passport-div' style={passportDiv}>
-              <img
-                style={{ width: "100%" }}
-                src={result.profile_picture}
-                alt=''
-              />
-            </div>
+      )}
+      <div className='result'>
+        <div className='wrapper'>
+          <div className='save-btn-div'>
+            <ReactToPrint
+              trigger={() => (
+                <button className='btn-primary save-btn'>SAVE FILE</button>
+              )}
+              content={() => componentRef.current}
+            />
           </div>
 
-          <div className='result-user' style={resultUser}>
-            <div>
-              <div className='result-user-item' style={resultUserItem}>
-                <h4 style={headWidth}>Name:</h4>
-                <span style={span}>
-                  {result.data?.surname + " " + result.data?.firstname}
-                </span>
+          {error && <AlertBox>{"An error occurred !"}</AlertBox>}
+
+          <div
+            id='content'
+            className='result-wrapper'
+            ref={componentRef}
+            style={resultWrapper}
+          >
+            <div className='result-header' style={resultHeader}>
+              <div className='logo-div' style={logoDiv}>
+                <img style={{ width: "100%" }} src={result.logo} alt='' />
               </div>
-              <div className='result-user-item' style={resultUserItem}>
-                <h4 style={headWidth}>level:</h4>
-                <span style={span}>{result.data?.level}</span>
+              <div className='result-address' style={resultAddress}>
+                <div className='sch-address' style={schAddress}>
+                  <h2 style={addTitle}>FREMONT COLLEGE OF EDUCATION</h2>
+                  <p style={addPara}>
+                    No.5 Raymond Osuman Street, PMB 2191 Maitama, Abuja,
+                    Nigeria.
+                  </p>
+                </div>
+                <div className='sch-dept' style={schDept}>
+                  <h2 style={deptTitle}>Post Graduate Diploma in Education</h2>
+                  <h5 style={deptSubTitle}>
+                    Student First Semester Statement Of Result
+                  </h5>
+                </div>
+              </div>
+              <div className='passport-div' style={passportDiv}>
+                <img
+                  style={{ width: "100%" }}
+                  src={result.profile_picture}
+                  alt=''
+                />
               </div>
             </div>
 
-            <div>
-              <div className='result-user-item' style={resultUserItem}>
-                <h4 style={headWidth}>Reg. No.:</h4>
-                <span style={span}>{result.data?.reg_no}</span>
+            <div className='result-user' style={resultUser}>
+              <div>
+                <div className='result-user-item' style={resultUserItem}>
+                  <h4 style={headWidth}>Name:</h4>
+                  <span style={span}>
+                    {result.data?.surname + " " + result.data?.firstname}
+                  </span>
+                </div>
+                <div className='result-user-item' style={resultUserItem}>
+                  <h4 style={headWidth}>level:</h4>
+                  <span style={span}>{result.data?.level}</span>
+                </div>
               </div>
-              <div className='result-user-item' style={resultUserItem}>
-                <h4 style={headWidth}>Session:</h4>
-                <span style={span}>{result.data?.session}</span>
+
+              <div>
+                <div className='result-user-item' style={resultUserItem}>
+                  <h4 style={headWidth}>Reg. No.:</h4>
+                  <span style={span}>{result.data?.reg_no}</span>
+                </div>
+                <div className='result-user-item' style={resultUserItem}>
+                  <h4 style={headWidth}>Session:</h4>
+                  <span style={span}>{result.data?.session}</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className='table1' style={table1}>
-            <table style={mTable1}>
-              <tbody>
-                <tr>
-                  <th style={tHead}>S/N</th>
-                  <th style={tHead}>Course Code</th>
-                  <th style={tHead}>Course Title</th>
-                  <th style={tHead}>Unit</th>
-                  <th style={tHead}>Grade</th>
-                  <th style={tHead}>Total Point</th>
-                </tr>
+            <div className='table1' style={table1}>
+              <table style={mTable1}>
+                <tbody>
+                  <tr>
+                    <th style={tHead}>S/N</th>
+                    <th style={tHead}>Course Code</th>
+                    <th style={tHead}>Course Title</th>
+                    <th style={tHead}>Unit</th>
+                    <th style={tHead}>Grade</th>
+                    <th style={tHead}>Total Point</th>
+                  </tr>
 
-                {/* {result.data?.result?.map((val, key) => {
+                  {/* {result.data?.result?.map((val, key) => {
                   return (
                     <tr key={key}>
                       <td>{key + 1}</td>
@@ -317,103 +318,104 @@ const Result = (props) => {
                   );
                 })} */}
 
-                <tr style={tRow1}>
-                  <td style={tData}>{"1"}</td>
-                  <td style={tData}>{studentRes1?.coursecode}</td>
-                  <td style={tData} className='' width='40%'>
-                    {studentRes1?.title}
-                  </td>
-                  <td style={tData} className=''>
-                    {studentRes1?.credit_unit}
-                  </td>
-                  <td style={tData}>{studentRes1?.grade}</td>
-                  <td style={tData}>{studentRes1?.total_point}</td>
-                </tr>
+                  <tr style={tRow1}>
+                    <td style={tData}>{"1"}</td>
+                    <td style={tData}>{studentRes1?.coursecode}</td>
+                    <td style={tData} className='' width='40%'>
+                      {studentRes1?.title}
+                    </td>
+                    <td style={tData} className=''>
+                      {studentRes1?.credit_unit}
+                    </td>
+                    <td style={tData}>{studentRes1?.grade}</td>
+                    <td style={tData}>{studentRes1?.total_point}</td>
+                  </tr>
 
-                <tr style={tRow2}>
-                  <td style={tData}>{"2"}</td>
-                  <td style={tData}>{studentRes2?.coursecode}</td>
-                  <td style={tData} className='' width='40%'>
-                    {studentRes2?.title}
-                  </td>
-                  <td style={tData} className=''>
-                    {studentRes2?.credit_unit}
-                  </td>
-                  <td style={tData}>{studentRes2?.grade}</td>
-                  <td style={tData}>{studentRes2?.total_point}</td>
-                </tr>
+                  <tr style={tRow2}>
+                    <td style={tData}>{"2"}</td>
+                    <td style={tData}>{studentRes2?.coursecode}</td>
+                    <td style={tData} className='' width='40%'>
+                      {studentRes2?.title}
+                    </td>
+                    <td style={tData} className=''>
+                      {studentRes2?.credit_unit}
+                    </td>
+                    <td style={tData}>{studentRes2?.grade}</td>
+                    <td style={tData}>{studentRes2?.total_point}</td>
+                  </tr>
 
-                <tr style={tRow3}>
-                  <td style={tData}>{"3"}</td>
-                  <td style={tData}>{studentRes3?.coursecode}</td>
-                  <td style={tData} className='' width='40%'>
-                    {studentRes3?.title}
-                  </td>
-                  <td style={tData} className=''>
-                    {studentRes3?.credit_unit}
-                  </td>
-                  <td style={tData}>{studentRes3?.grade}</td>
-                  <td style={tData}>{studentRes3?.total_point}</td>
-                </tr>
+                  <tr style={tRow3}>
+                    <td style={tData}>{"3"}</td>
+                    <td style={tData}>{studentRes3?.coursecode}</td>
+                    <td style={tData} className='' width='40%'>
+                      {studentRes3?.title}
+                    </td>
+                    <td style={tData} className=''>
+                      {studentRes3?.credit_unit}
+                    </td>
+                    <td style={tData}>{studentRes3?.grade}</td>
+                    <td style={tData}>{studentRes3?.total_point}</td>
+                  </tr>
 
-                <tr style={tRow4}>
-                  <td style={tData}>{"4"}</td>
-                  <td style={tData}>{studentRes4?.coursecode}</td>
-                  <td style={tData} className='' width='40%'>
-                    {studentRes4?.title}
-                  </td>
-                  <td style={tData} className=''>
-                    {studentRes4?.credit_unit}
-                  </td>
-                  <td style={tData}>{studentRes4?.grade}</td>
-                  <td style={tData}>{studentRes4?.total_point}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className='table2' style={table2}>
-            <table style={mTable2}>
-              <tbody>
-                <tr>
-                  <th style={tHead}>UNTS</th>
-                  <th style={tHead}>UNTD</th>
-                  <th style={tHead}>GPTS</th>
-                  <th style={tHead}>GPTD</th>
-                  <th style={tHead}>GPATS</th>
-                  <th style={tHead}>GPATD</th>
-                </tr>
-
-                <tr style={tRow1}>
-                  <td style={tData}>{result.data?.cummulative?.unts}</td>
-                  <td style={tData}>{result.data?.cummulative?.untd}</td>
-                  <td style={tData}>{result.data?.cummulative?.gpts}</td>
-                  <td style={tData} className=''>
-                    {result.data?.cummulative?.gptd}
-                  </td>
-                  <td style={tData}>{result.data?.cummulative?.gpats}</td>
-                  <td style={tData}>{result.data?.cummulative?.gpatd}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className='remarks' style={remarks}>
-            <div className='remarks-item' style={remarksItem}>
-              <p>Remarks:</p>
-              <span style={mainRemark}>
-                {result.data?.cummulative?.remarks}
-              </span>
+                  <tr style={tRow4}>
+                    <td style={tData}>{"4"}</td>
+                    <td style={tData}>{studentRes4?.coursecode}</td>
+                    <td style={tData} className='' width='40%'>
+                      {studentRes4?.title}
+                    </td>
+                    <td style={tData} className=''>
+                      {studentRes4?.credit_unit}
+                    </td>
+                    <td style={tData}>{studentRes4?.grade}</td>
+                    <td style={tData}>{studentRes4?.total_point}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </div>
 
-          <div className='signature-wrapper' style={signatureWrapper}>
-            <div className='signature' style={signature}></div>
-            <p>Registra</p>
+            <div className='table2' style={table2}>
+              <table style={mTable2}>
+                <tbody>
+                  <tr>
+                    <th style={tHead}>UNTS</th>
+                    <th style={tHead}>UNTD</th>
+                    <th style={tHead}>GPTS</th>
+                    <th style={tHead}>GPTD</th>
+                    <th style={tHead}>GPATS</th>
+                    <th style={tHead}>GPATD</th>
+                  </tr>
+
+                  <tr style={tRow1}>
+                    <td style={tData}>{result.data?.cummulative?.unts}</td>
+                    <td style={tData}>{result.data?.cummulative?.untd}</td>
+                    <td style={tData}>{result.data?.cummulative?.gpts}</td>
+                    <td style={tData} className=''>
+                      {result.data?.cummulative?.gptd}
+                    </td>
+                    <td style={tData}>{result.data?.cummulative?.gpats}</td>
+                    <td style={tData}>{result.data?.cummulative?.gpatd}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className='remarks' style={remarks}>
+              <div className='remarks-item' style={remarksItem}>
+                <p>Remarks:</p>
+                <span style={mainRemark}>
+                  {result.data?.cummulative?.remarks}
+                </span>
+              </div>
+            </div>
+
+            <div className='signature-wrapper' style={signatureWrapper}>
+              <div className='signature' style={signature}></div>
+              <p>Registra</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
